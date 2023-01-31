@@ -7,10 +7,12 @@ const loginController = require("../controller/loginController");
 
 
 router.post("/login", loginBodyValidation, (req,res)=>{
+  console.log("calleddd------>",req)
   loginController.loginController(req,res)
 });
 
 router.post("/signup", signUpBodyValidation, (req,res)=>{
+  console.log("calleddd---32423--->",req)
   signUpController.signUpController(req,res)
 });
 

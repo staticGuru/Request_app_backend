@@ -4,14 +4,7 @@ const jwt = require("jsonwebtoken");
 const userSchema = require("../models/userSchema");
 
 exports.loginController = async(req,res) => {
-    // const validationError = validationResult(req);
-    // if (!validationError.isEmpty()) {
-    //   res.status(400).json({
-    //     status: false,
-    //     errors: validationError.array(),
-    //   });
-    //   return;
-    // }
+ 
     const { email, password } = req.body;
 
     try {
