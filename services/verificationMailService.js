@@ -10,16 +10,16 @@ exports.VerificationMailService = async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "developer.eapp@gmail.com",
-        pass:"fszpwbyowqsyvrnx",
+        user: process.env.ADMIN_MAIL_ADDRESS,
+        pass:process.env.ADMIN_MAIL_APP_PASSWORD,
       },
     });
 
     const mailOptions = {
-      from: "developer.eapp@gmail.com",
+      from: process.env.ADMIN_MAIL_ADDRESS,
       to: email,
-      subject: "Sending Email using Node.js",
-      text: pin,
+      subject: "Verifcation pin from Eappworks!!!",
+      text:`Your one time verfication pin is ${pin}, Don't share it with anyone!!!`,
     };
 
     return transporter.sendMail(mailOptions, function (error, info) {

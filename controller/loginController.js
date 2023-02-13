@@ -40,7 +40,7 @@ exports.loginController = async(req,res) => {
       // await VerificationMailService({To:user.email,VerificationCode:GenerateOTP()})
       res.status(200).json({
         status: true,
-        result: user,
+        result: {user,accessToken:token},
       });
     } catch (err) {
       res.status(500).json({
