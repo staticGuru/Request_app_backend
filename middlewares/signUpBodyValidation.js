@@ -10,6 +10,7 @@ const signUpBodyValidation = async(req,res,next) => {
       .max(20).required(),
     role: Joi.string().required().valid("Admin","User"),
     email: Joi.string().required().email(),
+    userName:Joi.string().required(),
       // .regex(/^[\w!.%+\-]+@[\w\-]+(?:\.[\w\-]+)+$/)
     confirmPassword: Joi.string().required(),
     companyName: Joi.string().required().min(3).max(30),

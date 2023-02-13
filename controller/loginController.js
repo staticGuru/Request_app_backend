@@ -2,11 +2,14 @@ const bcrypt = require("bcryptjs");
 // const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const userSchema = require("../models/userSchema");
+const VerificationMailService = require("../services/verificationMailService");
 
 exports.loginController = async(req,res) => {
  
     const { email, password } = req.body;
-
+   function GenerateOTP() {
+      return Math.floor(1000 + Math.random() * 9000);
+     }
     try {
       const user = await userSchema.findOne({ email: email });
       if (!user) {
@@ -34,6 +37,7 @@ exports.loginController = async(req,res) => {
         secure: false, // cookie must be sent over https / ssl
         // sameSite: "none",
       });
+      // await VerificationMailService({To:user.email,VerificationCode:GenerateOTP()})
       res.status(200).json({
         status: true,
         result: user,

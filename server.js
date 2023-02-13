@@ -14,6 +14,7 @@ app.use(cookieParser());
 //   res.header("Access-Control-Allow-Origin", "*");
 //   next();
 //   });
+
 const corsOpts = {
   origin: '*',
 

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 const checkAuth = (req, res, next) => {
   const token = req.cookies["jwt"];
-  console.log("token from checkAuth", token);
   if (!token) {
     res.status(401).send({
       status: "failed",
