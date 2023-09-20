@@ -7,9 +7,6 @@ const VerificationMailService = require("../services/verificationMailService");
 exports.loginController = async(req,res) => {
  
     const { email, password } = req.body;
-   function GenerateOTP() {
-      return Math.floor(1000 + Math.random() * 9000);
-     }
     try {
       const user = await userSchema.findOne({ email: email });
       if (!user) {
