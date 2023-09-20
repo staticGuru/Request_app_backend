@@ -8,7 +8,6 @@ exports.signUpController = async(req,res)=>{
  
     const { email, password, confirmPassword, role,userName, companyName, isAgree } =
       req.body;
-
     try {
       if(password != confirmPassword){
         res
